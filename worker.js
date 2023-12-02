@@ -1,28 +1,14 @@
-// worker.js
-onmessage = function(e) {
-   const startNumber = e.data.start;
-   const endNumber = e.data.end;
-   const primeNumbers = findPrimesInRange(startNumber, endNumber);
-   postMessage(primeNumbers);
- };
- 
- function isPrime(num) {
-   if (num <= 1) return false;
-   for (let i = 2; i <= Math.sqrt(num); i++) {
-     if (num % i === 0) {
-       return false;
-     }
-   }
-   return true;
- }
- 
- function findPrimesInRange(start, end) {
-   const primeNumbers = [];
-   for (let i = start; i <= end; i++) {
-     if (isPrime(i)) {
-       primeNumbers.push(i);
-     }
-   }
-   return primeNumbers;
- }
- 
+self.onmessage = (e) => {
+  console.log(e.data);
+  if (e.data.cmd === "eject") eject();
+};
+
+function eject() {
+  console.log("Ejecting");
+  const t0 = performance.now();
+  for (let i = 0; i < 100_000; i++) {
+     for (let j = 0; j < 100_000; j++) {}
+  }
+  const tz = (performance.now() - t0) / 1_000;
+  self.postMessage({ cmd: "finished", msg: tz });
+}
