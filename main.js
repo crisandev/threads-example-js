@@ -7,10 +7,9 @@ function startThread() {
    worker.postMessage({ cmd: "eject", thread: threadsQuantity });
    threadsQuantity++;
 
-   worker.onmessage = (e) => {
-      if (e.data.cmd === "finished") {
-         console.log("finished");
-         threadElementEnd(e.data.thread);
+   worker.onmessage = ({ data }) => {
+      if (data.cmd === "finished") {
+         threadElementEnd(data.thread);
       }
    };
 }
@@ -39,6 +38,7 @@ const threadElementStart = (threadsQuantity) => {
          span.textContent = milliseconds;
       }, 1)
    );
+
    btn.appendChild(img);
    div.appendChild(p);
    div.appendChild(span);
