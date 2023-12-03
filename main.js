@@ -25,7 +25,7 @@ const threadElementStart = (threadsQuantity) => {
    div.className = "thread";
    div.id = `thread-${threadsQuantity}`;
    p.textContent = "Milliseconds";
-   img.src = "./images/delete.png";
+   img.src = "./src/images/delete.png";
    btn.className = "btn-delete";
    btn.addEventListener("click", (e) => {
       threadContainer.removeChild(div);
