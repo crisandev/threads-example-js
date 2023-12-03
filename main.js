@@ -18,21 +18,34 @@ function startThread() {
 const threadElementStart = (threadsQuantity) => {
    const threadContainer = document.getElementById("threads-container");
    const div = document.createElement("div");
+   const span = document.createElement("span");
+   const p = document.createElement("p");
+   const btn = document.createElement("button");
+   const img = document.createElement("img");
+
    div.className = "thread";
    div.id = `thread-${threadsQuantity}`;
+   p.textContent = "Milliseconds";
+   img.src = "./images/delete.png";
+   btn.className = "btn-delete";
+   btn.addEventListener("click", (e) => {
+      threadContainer.removeChild(div);
+   });
 
    let milliseconds = 0;
    intervals.push(
       setInterval(() => {
          milliseconds++;
-         div.innerHTML = milliseconds;
+         span.textContent = milliseconds;
       }, 1)
    );
+   btn.appendChild(img);
+   div.appendChild(p);
+   div.appendChild(span);
+   div.appendChild(btn);
    threadContainer.appendChild(div);
 };
 
 const threadElementEnd = (thread) => {
-   const div = document.getElementById(`thread${thread}`);
    clearInterval(intervals[thread]);
-   console.log(thread);
 };

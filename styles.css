@@ -1,3 +1,57 @@
-body{
-    text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+* {
+   font-family: "Ubuntu", sans-serif;
+}
+
+body {
+   text-align: center;
+   background-color: #18181b;
+   color: #f2f7fb;
+}
+
+h1 {
+   margin-top: 100px;
+   font-weight: 700;
+   font-size: 40px;
+   background-color: #1a2c32;
+   padding: 20px 0;
+}
+
+.btn {
+   padding: 10px;
+   font-size: 20px;
+   cursor: pointer;
+   background-color: #2d464c;
+   border: 5px;
+   border-radius: 5px;
+   color: #f2f7fb;
+}
+
+.btn-delete {
+   cursor: pointer;
+   background-color: transparent;
+   border-color: transparent;
+   margin-top: 10px;
+}
+
+.threads-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+}
+
+.thread {
+   background-color: #ddeff0;
+   padding: 10px 25px;
+   margin: 30px;
+   border-radius: 5px;
+   display: grid;
+}
+
+.thread > p,
+.thread > span {
+   color: #18181b;
+   text-transform: uppercase;
+   font-weight: 500;
 }
